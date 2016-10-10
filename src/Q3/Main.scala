@@ -1,4 +1,4 @@
-package Q2
+package Q3
 
 /**
   * Created by januslin on 9/10/2016.
@@ -43,7 +43,10 @@ object Main {
       for (x <- 0 until newcolumnSize){
         var colresult = 0
         for (i<- vector(y).indices){
-            colresult += (vector(y)(i) * matrix(i)(x))
+          for (j <- matrix.indices){
+            if (i == j)
+                colresult += (vector(y)(i) * matrix(j)(x))
+          }
         }
         result(y)(x) = colresult
       }
